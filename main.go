@@ -1,15 +1,9 @@
 package main
 
-import excercises "tut/exercises"
+import (
+	excercises "MiniProjects/excercises"
+)
 
 func main() {
-	excercises.Dup3()
+	excercises.FetchWithCopy()
 }
-
-//test
-//test
-//test
-//test
-//test
-//test
-//test
