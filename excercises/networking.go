@@ -3,6 +3,7 @@ package excercises
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -54,4 +55,13 @@ func FetchWithCopy() {
 
 		fmt.Println(arg)
 	}
+}
+
+func StartServerOnPort(port int32) {
+	http.HandleFunc("/gif", func(w http.ResponseWriter, r *http.Request) {
+		Lissajous(w)
+	})
+
+	server := fmt.Sprintf("localhost:%d", port)
+	log.Fatal(http.ListenAndServe(server, nil))
 }
