@@ -5,3 +5,7 @@ build:
 .PHONY: run
 run: build
 	@.\bin\main $(args)
+
+.PHONY: rungif
+rungif: build
+	@./bin/main >out.gif
