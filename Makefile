@@ -1,11 +1,11 @@
 .PHONY: build
 build:
-	@go build -o bin\main main.go
+	@go build -o bin\main.exe main.go
 
 .PHONY: run
 run: build
-	@.\bin\main $(args)
+	@.\bin\main.exe $(args)
 
 .PHONY: rungif
 rungif: build
-	@./bin/main >out.gif
+	@./bin/main.exe >out.gif
