@@ -22,8 +22,6 @@ func (list *LinkedList) AddTail(data string) (ok bool) {
 
 	item := &Node{Data: data}
 
-	// TODO: fix adding to the head and tail.
-
 	if list.Head == nil || list.count == 0 {
 		// fmt.Println("Head empty, making item head.")
 		item.Last = nil
@@ -47,8 +45,6 @@ func (list *LinkedList) AddTail(data string) (ok bool) {
 func (list *LinkedList) AddHead(data string) (ok bool) {
 
 	item := &Node{Data: data}
-
-	// TODO: fix adding to the head and tail.
 
 	if list.Head == nil || list.count == 0 {
 		// fmt.Println("Head empty, making item head.")
@@ -74,7 +70,7 @@ func (list *LinkedList) Insert(data string, pos uint) (ok bool) {
 	// remove next and last references of the item if the list is empty.
 	item := &Node{Data: data}
 
-	if pos > list.count { // TODO: incorrect bounds check
+	if pos > list.count {
 		// fmt.Printf("position not matching list count %t\n", (pos > list.count))
 		return false
 	}
