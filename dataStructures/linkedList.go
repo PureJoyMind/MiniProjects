@@ -18,6 +18,57 @@ type Node struct {
 	Data       string
 }
 
+func (list *LinkedList) AddTail(data string) (ok bool) {
+
+	item := &Node{Data: data}
+
+	// TODO: fix adding to the head and tail.
+
+	if list.Head == nil || list.count == 0 {
+		// fmt.Println("Head empty, making item head.")
+		item.Last = nil
+		item.Next = nil
+		list.Head = item
+		list.Tail = item
+		list.count = 1
+		// fmt.Printf("Head: %+v\t%p\n", *list.Head, list.Head)
+		return true
+	}
+
+	// update tail
+	item.Last = list.Tail
+	list.Tail.Next = item
+	list.Tail = item
+	list.count++
+	return true
+
+}
+
+func (list *LinkedList) AddHead(data string) (ok bool) {
+
+	item := &Node{Data: data}
+
+	// TODO: fix adding to the head and tail.
+
+	if list.Head == nil || list.count == 0 {
+		// fmt.Println("Head empty, making item head.")
+		item.Last = nil
+		item.Next = nil
+		list.Head = item
+		list.Tail = item
+		list.count = 1
+		// fmt.Printf("Head: %+v\t%p\n", *list.Head, list.Head)
+		return true
+	}
+
+	// update Head
+	item.Next = list.Head
+	list.Head.Last = item
+	list.Head = item
+	list.count++
+	return true
+}
+
 func (list *LinkedList) Insert(data string, pos uint) (ok bool) {
 	// Add an item to a linked list,
 	// remove next and last references of the item if the list is empty.
@@ -30,7 +81,7 @@ func (list *LinkedList) Insert(data string, pos uint) (ok bool) {
 
 	// TODO: fix adding to the head and tail.
 
-	if list.Head == nil {
+	if list.Head == nil || list.count == 0 {
 		// fmt.Println("Head empty, making item head.")
 		item.Last = nil
 		item.Next = nil
