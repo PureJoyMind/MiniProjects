@@ -172,3 +172,21 @@ func (l *LinkedList) Print() {
 		tmp = tmp.Next
 	}
 }
+
+func Implementation() {
+	l := LinkedList{}
+
+	for i := range 10 {
+		l.AddTail(fmt.Sprintf("%d Tail", i+1))
+	}
+
+	for i := range 10 {
+		l.AddHead(fmt.Sprintf("%d Head", i+1))
+	}
+
+	for i := range 10 {
+		l.AddTail(fmt.Sprintf("%d Tail", i+11))
+	}
+
+	l.Print()
+}
